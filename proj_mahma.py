@@ -3,17 +3,20 @@ root=tk.Tk()
 root.geometry("500x500")
 root.title("My UI")
 
-label_converter=tk.Label(root,text="Temperature Converter: Celcius to Fahrenheit",font=('Arial',10))
+label_converter=tk.Label(root,text="Temprature Converter: Celcius to Fahrenheit",font=('Arial',10))
 label_converter.pack(padx=10,pady=10)
 
 def MyCalculateFunction():
-    temperature=float(box_temperature.get())
-    result= ((temperature*1.8)+32)
+    
+    temprature=float(box_temprature.get())
+    result=(temprature*1.8)+32.0
+  
 
-    label_result.config("Farenheit",(temperature,result))
+    label_result.config(text="%f * 1.8%+32.0%=%f"% (temprature, result))
 
-box_temperature=tk.Entry(root)
-box_temperature.pack()
+
+box_temprature=tk.Entry(root)
+box_temprature.pack()
 
 button_calculate=tk.Button(root,text="Calculate", command=MyCalculateFunction)
 button_calculate.pack()
